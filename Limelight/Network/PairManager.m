@@ -157,9 +157,9 @@
         challengeRespHash = [cryptoMan SHA1HashData: challengeRespHashInput];
     }
     
-    assert([challengeRespHash length] <= 32);
+    assert([challengeRespHash length] <= hashLength);
     NSMutableData* paddedHash = [NSMutableData dataWithData:challengeRespHash];
-    [paddedHash setLength:32];
+    [paddedHash setLength:hashLength];
     
     NSData* challengeRespEncrypted = [cryptoMan aesEncrypt:paddedHash withKey:aesKey];
     
